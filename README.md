@@ -15,3 +15,8 @@ where to start localhost 8000 wp admin,
 how to stop and clean up
 
 and what about incompatibility-checker plugin
+
+FROM wordpress:latest
+- use other tags in docker/wordpress.Dockerfile to test specific versions, see
+- https://hub.docker.com/_/wordpress/
+- FROM wordpress:6.1.1-php8.0-apache
