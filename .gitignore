@@ -1,0 +1,12 @@
+themes/
+node_modules
+vendor
+data
+wordpress
+.wp-cli
+!.wp-cli/cache
+wp_data
+.idea
+.svn
+incompatibility-status/tags
+
