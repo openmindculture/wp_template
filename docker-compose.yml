@@ -34,8 +34,8 @@ services:
       - wp_data:/var/www/html
       # increase allowed upload file size so that we can import shop data:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      # uncomment/modify the following line to make specific plugins available for local search/debugging:
-      # - ./plugins/woocommerce-germanized-pro/:/var/www/html/wp-content/plugins/woocommerce-germanized-pro
+      # uncomment/modify the following line to plugin code available for local search/debugging:
+      # - ./plugins/:/var/www/html/wp-content/plugins
 
 
   wordpress-cli:
