@@ -58,7 +58,7 @@ Type
 
 `docker exec -it wordpress_setup_test_wordpress_1 bash`
 
-Replace `wordpress_setup_test_wordpress_1` with the appropriate name found in `docker ps`, if necessary.
+Replace `wp_cli_docker_wordpress_1` with the appropriate name found in `docker ps`, if necessary.
 
 Inside the docker container, you will find WordPress in `/var/www/html`.
 
