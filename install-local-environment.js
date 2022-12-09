@@ -55,7 +55,8 @@ async function init() {
 
     await compose.run(
         'wordpress-cli',
-        'wp plugin install incompatibility-status contact-form-7 cookie-law-info fusion login-lockdown updraftplus wpml --activate',
+        /* specify the technical names (text domain) of plugins to be installed */
+        'wp plugin install updraftplus --activate',
         { cwd: path.join(__dirname), commandOptions: ['--rm'] })
         .then(
         () => { console.log('Installed remote plugins')},
