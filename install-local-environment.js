@@ -128,29 +128,11 @@ async function init() {
 
     compose.run(
         'wordpress-cli',
-        'wp import ./foodtogether-content.xml --authors=create',
+        'wp import ./content.xml --authors=create',
         { cwd: path.join(__dirname), commandOptions: ['--rm'] })
         .then(
-        () => { console.log('Added FoodTogether Content')},
+        () => { console.log('Added exported content')},
         err => { console.log('something went wrong:', err.message)}
-        );
-    
-    compose.run(
-        'wordpress-cli',
-        'wp option update page_on_front 40',
-        { cwd: path.join(__dirname), commandOptions: ['--rm'] })
-        .then(
-            () => { console.log('Set "Komm, wir bringen Vielfalt auf den Acker." as frontpage')},
-            err => { console.log('something went wrong:', err.message)}
-        );
-
-    compose.run(
-        'wordpress-cli',
-        'wp option update show_on_front page',
-        { cwd: path.join(__dirname), commandOptions: ['--rm'] })
-        .then(
-            () => { console.log('Change to Page as Frontpage')},
-            err => { console.log('something went wrong:', err.message)}
         );
 }
 
