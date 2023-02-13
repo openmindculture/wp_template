@@ -33,13 +33,13 @@ Modify [install-local-environment.js](./install-local-environment.js) to select 
 'wp plugin install incompatibility-status updraftplus --activate';
 ```
 
-Some commercial / padi plugins cannot be installed automatically. They have to be uploaded or installed manually later.
+Some commercial / paid plugins cannot be installed automatically. They have to be uploaded or installed manually later.
 
 ### Configure WordPress Core, Web Server, PHP Version used
 
-Modify [docker/wordpress.Dockerfile](./docker/wordpress.Dockerfile) to choose one of various predefined configurations using different PHP versions like 7.4, 8.0, 8.1 etc. and popular web servers like Apache or nginx to copy our customer's web hosting provider's technical setup as best as possible.
+Modify [docker/WordPress.Dockerfile](./docker/WordPress.Dockerfile) to choose one of various predefined configurations using different PHP versions like 7.4, 8.0, 8.1 etc. and popular web servers like Apache or nginx to copy our customer's web hosting provider's technical setup as good as possible.
 
-See https://hub.docker.com/_/wordpress/ for available docker tags, or keep `wordpress:latest` for the lastest stable release.
+See https://hub.docker.com/_/wordpress/ for available docker tags, or keep `wordpress:latest` for the newest (latest) stable release.
 
 ```Dockerfile
 FROM wordpress:latest
@@ -50,7 +50,7 @@ FROM wordpress:latest
 
 ## Inspection
 
-To facilitate debugging, `plugins` are mounted as a local directory, so you can search files and view error messages and annotations, to collect details for filing issues or for creating patches yourself.
+To facilitate debugging, `plugins` is mounted as a local directory, so you can search files and view error messages and annotations, to collect details for filing issues or for creating patches yourself.
 
 You can enter the Docker container and use it much like a remote server.
 
@@ -74,6 +74,20 @@ Use
 `npm run destroy`
 
 to remove the installation.
+
+## Development
+
+For an optional WordPress theme / plugin development base / template, use the downstream version which adds linting etc. 
+
+Note: `eslint` is configured to honor WordPress theme / plugin development style guides. It does _not_ check the installation script `install-local-environment.js` which should be checked used the `eslint-recommended` rules instead.
+
+TODO: 
+- clean up and remove project skeleton stuff after forking a downstream repository.
+- add link to template repo to this `wp_cli_docker` README file.
+- revert eslint to check installation script in `wp_cli_docker`
+- merge upcoming installer improvements into downstream template repo
+- add stylelint to template repo
+- add phpsniffer etc. to template repo
 
 ## Troubleshooting
 
