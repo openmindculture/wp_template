@@ -1,0 +1,33 @@
+{
+	"name": "openmindculture/wordpress-codestyle-sniffer-composer",
+	"description": "CodeSniffer to ensure PHP code follows WordPress coding standards",
+	"type": "project",
+	"keywords": [],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": "^7.4",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.7.1",
+		"wp-coding-standards/wpcs": "^2.3.0"
+	},
+	"config": {
+		"vendor-dir": "vendor",
+		"preferred-install": "dist",
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"platform": {
+			"php": "7.4"
+		}
+	},
+	"extra": {
+		"wordpress-install-dir": "wp_data",
+		"lint": "find src -name '*.php' -exec php -l {} \\;"
+	}
+}
