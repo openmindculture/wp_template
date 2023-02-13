@@ -1,14 +1,13 @@
-# WordPress Test Setup
+# WordPress Template
 
-[wp_cli_docker](https://github.com/openmindculture/wp_cli_docker) is a simple local host WordPress setup using Docker, docker-compose, and wp-cli to install themes and plugins, in order to quickly evaluate and ensure compatibility of a certain setup of components and software versions.
+[wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, and wp-cli to install, develop, and test themes and plugins. This template was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker).
 
 ## Introduction
 
-Using this setup, we can try to mimic our customer's plugins, themes, and web hosting provider's technical setup as good as possible to check for any possible problems, bugs, or incompatibility before applying changes and updates to the actual WordPress installation on their production server.
-
-We can use the [incompatibility-status](https://wordpress.org/plugins/incompatibility-status/) checker plugin for a quick overview of WordPress Core, PHP, and themes versions with a specific focus on support for the block editor, custom blocks, and (full) site editing compatibilities.
-
-The installation script needs more refactoring to guarantee that it runs fail-safe on any computer, especially on slow Windows WSL Docker systems. TODO: find an official best-practice WP-CLI installation script to make sure all dependencies are safely handled. After installation of the containers using docker-compose via the node.js interface, there seems to be some additional setup time required for the database container before we can actually access it using wp-cli. This used to be handled using an arbitrary timeout. Alternatively, we could retry wp-cli until the database seems to be ready. Neither seems an elegant approach.
+TODO 
+- add introduction
+- add development configuration
+- 
 
 ## Usage
 
