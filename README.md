@@ -8,6 +8,8 @@ Using this setup, we can try to mimic our customer's plugins, themes, and web ho
 
 We can use the [incompatibility-status](https://wordpress.org/plugins/incompatibility-status/) checker plugin for a quick overview of WordPress Core, PHP, and themes versions with a specific focus on support for the block editor, custom blocks, and (full) site editing compatibilities.
 
+The installation script needs more refactoring to guarantee that it runs fail-safe on any computer, especially on slow Windows WSL Docker systems. TODO: find an official best-practice WP-CLI installation script to make sure all dependencies are safely handled. After installation of the containers using docker-compose via the node.js interface, there seems to be some additional setup time required for the database container before we can actually access it using wp-cli. This used to be handled using an arbitrary timeout. Alternatively, we could retry wp-cli until the database seems to be ready. Neither seems an elegant approach.
+
 ## Usage
 
 `npm start` should set up WordPress on http://localhost:8000/
