@@ -1,13 +1,13 @@
-# WordPress Template
+# WordPress Template / Starter Theme Boilerplate
 
-[wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, and wp-cli to install, develop, and test themes and plugins. This template was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker).
+[wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, wp-cli, and SCSS to install, develop, and test themes and plugins. It was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker). This template can help you build a classic (child) theme from scratch (without exporting from the block editor), that follows the official WordPress coding standards.
 
-## Introduction
+- The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
+- Use SCSS and write verbose code in `/src`.
+- Add or configure other build tools, like minifying or transpiling if needed.
+- Create a zip archive of that subdirectory to export the theme to another WordPress installation.
 
-TODO 
-- add introduction
-- add development configuration
-- 
+To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`.
 
 ## Usage
 
@@ -78,17 +78,17 @@ to remove the installation.
 
 ## Development
 
-For an optional WordPress theme / plugin development base / template, use the downstream version which adds linting etc. 
+Follow the [detailled WordPress plugin development guidelines](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/).
 
-Note: `eslint` is configured to honor WordPress theme / plugin development style guides. It does _not_ check the installation script `install-local-environment.js` which should be checked used the `eslint-recommended` rules instead.
+In JetBrains IDEA (PhpStorm, WebStorm, etc.) enable WordPress support and set `wp_data` as WordPress path, so that the local code inspections like SonarLint can recognize the built-in functions. You can still mark the directory as excluded to avoid unnecessary indexing and search results.
 
-TODO: 
-- clean up and remove project skeleton stuff after forking a downstream repository.
-- add link to template repo to this `wp_cli_docker` README file.
-- revert eslint to check installation script in `wp_cli_docker`
-- merge upcoming installer improvements into downstream template repo
-- add stylelint to template repo
-- add phpsniffer etc. to template repo
+Some SonarLint warnings (and PHP PSR conventions) should be ignored, like avoiding underscores in function names. As we operate in a global namespace shared with other plugins, it is considered best practice to use a unique prefix for identifiers used for `function`, `class`, and `define`.
+
+A local code sniffer validation can be set up using the provided `composer.json` configuration. Note that this currently does not work with PHP 8, so you need to use a PHP 7.4 runtime (`/usr/bin/php74`). You may need to adjust the IDE settings to WordPress coding standards and code sniffer configurations according to the provided tutorial.
+
+- https://packagist.org/packages/wp-coding-standards/wpcs
+- https://www.jetbrains.com/help/idea/using-php-code-sniffer.html#installing-configuring-code-sniffer
+- https://www.linuxbabe.com/ubuntu/php-multiple-versions-ubuntu
 
 ## Troubleshooting
 
