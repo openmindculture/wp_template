@@ -11,11 +11,10 @@ To persist important content like example posts or pages, use the default WordPr
 
 ## Usage
 
-`npm start` should set up WordPress on http://localhost:8000/
-
-You can open http://localhost:8000/wp-admin and check the dashboard, health status, additional information provided by the incompatibility status plugin, and add more plugins, themes, and content.
-
-You can use the [WordPress content import/export tool](https://learn.wordpress.org/tutorial/tools-import-and-export/) to add content from other existing WordPress sites.
+- `npm start` should set up WordPress on http://localhost:8000/
+- `npm run watch` adds file watcher to automatically rebuild the theme.
+- `npm stop` stops the server without destroying data and configuration.
+- `npm run destroy` removes the installation and its data.
 
 ## Requirements
 
@@ -24,6 +23,13 @@ You can use the [WordPress content import/export tool](https://learn.wordpress.o
 - docker-compose
 
 ## Configuration
+
+### Set Theme name and Target Directory
+
+- Create a subdirectory below `themes` matching your theme name.
+- Open `package.json` and edit `build:core`, `"build:scss:sass:theme`, `build:scss:postcss:theme` etc. accordingly.
+- Edit `build:core` to make sure all necessary files will be exported.
+- Edit your `style.css` and `theme.json` to match name, author, version etc.
 
 ### Configure pre-installed Themes and Plugins
 

@@ -9,3 +9,4 @@ wordpress
 wp_data
 .idea
 .svn
+.docker

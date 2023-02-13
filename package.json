@@ -3,26 +3,37 @@
   "version": "1.0.2",
   "description": "A simple localhost WordPress setup using Docker, docker-compose, wp-cli, and SCSS to install, develop, and test themes and plugins as a classic (child) theme template / starter theme boilerplate following WP coding standards.",
   "scripts": {
-	"start": "docker-compose restart",
-	"install": "node install-local-environment.js",
-	"postinstall": "docker image prune -f",
-	"stop": "docker-compose stop",
-	"destroy": "docker-compose down -v",
-	"eslint": "eslint --ext .js src",
-	"stylelint": "stylelint src/*.css"
+    "start": "docker-compose restart",
+    "install": "node install-local-environment.js",
+    "postinstall": "docker image prune -f",
+    "stop": "docker-compose stop",
+    "destroy": "docker-compose down -v",
+    "eslint": "eslint --ext .js src",
+    "stylelint": "stylelint src/*.css",
+	"prebuild": "rimraf build dist && make-dir dist",
+	"build": "run-s build:scss build:core",
+	"build:core": "copyfiles -u 1 -e src/**/* src/style.css src/theme.json src/screenshot.jpg src/assets/fonts/* src/assets/svg/* src/*.php  themes/twentytwentythree-child",
+	"build:scss": "run-p build:scss:sass:* && run-p build:scss:postcss:*",
+	"build:scss:sass:theme": "sass src/sass/theme.scss themes/twentytwentythree-child/assets/theme.css --no-source-map --style=expanded",
+	"build:scss:postcss:theme": "postcss themes/twentytwentythree-child/assets/theme.css --use autoprefixer -r --map",
+	"watch": "watch \"npm run build:scss\" src/sass"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cssnano": "^5.1.11",
-    "docker-compose": "^0.23.17",
-    "make-dir-cli": "^3.0.0",
-    "npm-run-all": "^4.1.5",
-    "path": "^0.12.7",
-    "rimraf": "^3.0.2"
+    "docker-compose": "^0.23.17"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^13.10.0",
-    "@wordpress/stylelint-config": "^21.9.0"
+    "@wordpress/stylelint-config": "^21.9.0",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.1.14",
+    "make-dir-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "postcss-cli": "^10.1.0",
+    "rimraf": "^4.1.2",
+    "sass": "^1.58.0",
+    "watch": "^1.0.2"
   }
 }

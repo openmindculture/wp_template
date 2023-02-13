@@ -32,7 +32,7 @@ services:
     # shared volume
     volumes:
       - "./wp_data:/var/www/html"
-      - "./themes:/var/www/html/wp-content/themes"
+      - "./themes:/var/www/html/wp-content/themes:rw"
       # increase allowed upload file size so that we can import shop data:
       - .docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       # uncomment/modify the following line to plugin code available for local search/debugging:
@@ -62,7 +62,7 @@ services:
     # shared volume
     volumes:
       - "./wp_data:/var/www/html"
-      - "./themes:/var/www/html/wp-content/themes"
+      - "./themes:/var/www/html/wp-content/themes:rw"
 
 volumes:
   db_data:
