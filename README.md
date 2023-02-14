@@ -31,6 +31,22 @@ To persist important content like example posts or pages, use the default WordPr
 - Edit `build:core` to make sure all necessary files will be exported.
 - Edit your `style.css` and `theme.json` to match name, author, version etc.
 
+### Modifying localhost Port and Domain
+
+The server listens on port 8000 by default, so you can enter http://localhost:8000/ to open WordPress in your browser. Modifying the port not only allows you to run multiple local projects at the same time, but it can also prevent browser caching issues between different local WordPress servers and ensure that cross-domain resources, paid plugins or fonts etc. will be displayed correctly.
+
+You can also set a local domain name that matches your future production server, by adding the domain as a localhost alias in `/etc/hosts` and configuring WordPress to use that domain. A port set to `80` can be omitted in the url, so http://example.com:80/ is equivalent to http://example.com/ and might facilitate testing even more.
+
+Edit the port mapping for the `wordpress:` service in `docker-compose.yml` and change the first value to whatever port you want to use in your browser.
+
+Edit the `installCore` function in `install-local-environment.js` and change `--url=http://localhost:8000"` to the appropriate URL.
+
+Edit `/etc/hosts` and add the local domain alias:
+
+```
+127.0.0.1	localhost example.com www.example.com
+```
+
 ### Configure pre-installed Themes and Plugins
 
 Modify [install-local-environment.js](./install-local-environment.js) to select which themes and plugins will be installed automatically using `wp-cli`. You must specify the technical names (text domains), not the current titles! The technical names are the same as the directory names in the plugin paths.
