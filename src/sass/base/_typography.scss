@@ -1,0 +1,11 @@
+/* Typography */
+
+html {
+	font-family: 'Foo Bar', sans-serif;
+}
+
+h1 {
+	font-family: 'Baz';
+	color: $brand-secondary;
+	margin-bottom: $defaultGap;
+}
