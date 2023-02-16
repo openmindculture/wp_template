@@ -1,9 +1,12 @@
 // @use "base/reset"; /* explicit style reset obsolete in a child theme */
-@use "base/variables";
-@use "base/fonts";
-@use "base/typography";
-@use "base/layout";
+@import "base/variables"; // global variable namespace
+@import "base/fonts";
+@import "base/typography";
+@import "base/layout";
 
 /* add libraries like animate.css here */
 
 /* include atoms, blocks, patterns, ... */
+@import "components/buttons";
+@import "components/ctas";
+
