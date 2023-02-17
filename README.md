@@ -112,9 +112,18 @@ A local code sniffer validation can be set up using the provided `composer.json`
 - https://www.jetbrains.com/help/idea/using-php-code-sniffer.html#installing-configuring-code-sniffer
 - https://www.linuxbabe.com/ubuntu/php-multiple-versions-ubuntu
 
+### Child Themes and Editor Styles Specificity
+
+As mentioned in the [child-theme chapter of the WordPress theme developer handbook](https://developer.wordpress.org/themes/advanced-topics/child-themes/), different themes might use different ways to load their theme styles and editor styles, so we might have to adapt our loading mechanism accordingly.
+
+Some themes automatically load child theme styles, so that we would not need any custom `functions.php` code. But we can still use a `wp_enqueue_scripts` hook with two `wp_enqueue_style` function calls to state the styles' dependency explicitly.
+
+To apply our (child) theme styles in the (Gutenberg) block editor, we have to `add_theme_support` for `editor-styles` and add  our `theme.css` using `add_editor_style` as [described in the block editor handbook](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-support/). This will wrap our frontend styles in an `.editor-styles-wrapper` which is the modern equivant of the class editor's iframe body.
+
+It is still a good idea to ensure that our child theme styles override parent styles using CSS specificity, as [suggested by GeneratePress support](https://generatepress.com/forums/topic/child-theme-css-precedence/). This makes our theme more robust as it will not have to rely on the loading order.
+
+In future themes, we might want to support the new WordPress style engine and use `theme.json`, but we don't necessarily need to. See [Managing CSS Styles in a WordPress Block Theme by Ganesh Dahal on CSS-Tricks](https://css-tricks.com/managing-css-styles-in-a-wordpress-block-theme/) for more details.
+
 ## Troubleshooting
 
-- make sure that there is no other local service listening on port 8000
-
-
-
+- make sure that there is no other local service listening on port 8000 or configure another port

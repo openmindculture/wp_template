@@ -4,6 +4,9 @@
 @import "base/typography";
 @import "base/layout";
 
+// Note: always ensure specificity to override parent theme styles!
+// This makes the theme more robust by not relying on the loading order of style files.
+
 /* add libraries like animate.css here */
 
 /* include atoms, blocks, patterns, ... */
