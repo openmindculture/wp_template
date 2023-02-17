@@ -1,11 +1,17 @@
 /* Typography */
 
-html {
+html, body {
 	font-family: 'Foo Bar', sans-serif;
 }
 
-h1 {
-	font-family: 'Baz';
-	color: $brand-secondary;
-	margin-bottom: $defaultGap;
+// Ensure specificity to override parent theme styles!
+// This makes the theme more robust by not relying on the loading order of style files.
+
+body { // use nesting so that the specificity wrapper only needs to be edited once
+	h1 {
+		font-family: 'Baz';
+		color: $brand-secondary;
+		margin-bottom: $defaultGap;
+	}
+
 }
