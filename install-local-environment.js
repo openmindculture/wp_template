@@ -66,7 +66,7 @@ async function installPlugins() {
     return await compose.run(
         'wordpress-cli',
         /* specify the technical names (text domain) of plugins to be installed */
-        'wp plugin install --activate updraftplus',
+        'wp plugin install --activate advanced-custom-fields updraftplus',
         { cwd: path.join(__dirname), commandOptions: ['--rm'] });
 }
 

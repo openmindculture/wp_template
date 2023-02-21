@@ -5,8 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 const MYPREFIX_THEME_VERSION = '1.0.0'; // use to ensure that browsers don't load outdated cached style versions
 
 function child_theme_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() .'/style.css' , array('parent-style'), MYPREFIX_THEME_VERSION, 'all');
+	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.scss' );
+	wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() . '/style.scss', array('parent-style'), MYPREFIX_THEME_VERSION, 'all');
 }
 
 add_action( 'wp_enqueue_scripts', 'child_theme_styles', 20 );

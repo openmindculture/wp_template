@@ -2,12 +2,20 @@
 
 [wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, wp-cli, and SCSS to install, develop, and test themes and plugins. It was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker). This template can help you build a classic (child) theme from scratch (without exporting from the block editor), that follows the official WordPress coding standards.
 
+## Child Theme and Optional Must-Use-Plugin
+
 - The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
 - Use SCSS and write verbose code in `/src`.
 - Add or configure other build tools, like minifying or transpiling if needed.
 - Create a zip archive of that subdirectory to export the theme to another WordPress installation.
 
-To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`.
+The best practice for a quick, minimal, and standards compliant setup, is to create a child theme of an official or popular theme that provides most of the required functionality.
+
+If we need to define custom data structures, we can use the popular [ACF (Advanced Custom Fields) plugin](https://wordpress.org/plugins/advanced-custom-fields/) to add custom fields, and use our own minimal plugin to define custom post types. This should not be part of the theme, to prevent data loss when a theme is changed or deactivated. Using a must-use plugin ensures that the code will always be active.
+
+To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`. The data might have to be installed manually when setting up a production environment.
+
+For the sake of simplicity, our example setup uses a single-file plugin and puts all styles directly into a single `style.css` file without using further `theme.css` or `theme.json` files, which we might want to use depending on the requirements for customizability.
 
 ## Usage
 
