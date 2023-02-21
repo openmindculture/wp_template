@@ -5,7 +5,8 @@
 ## Child Theme and Optional Must-Use-Plugin
 
 - The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
-- Use SCSS and write verbose code in `/src`.
+- Use (S)CSS and write verbose code in `/src`.
+  - (TODO: remove SCSS from deffault setup, replace with CSS next syntax using [PostCSS](https://postcss.org)) 
 - Add or configure other build tools, like minifying or transpiling if needed.
 - Create a zip archive of that subdirectory to export the theme to another WordPress installation.
 
