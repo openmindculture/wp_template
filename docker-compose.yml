@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: docker/WordPress.Dockerfile
     ports:
-      - "8000:80"
+      - "8765:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
@@ -29,13 +29,13 @@ services:
       WORDPRESS_TABLE_PREFIX: "wp_"
       WORDPRESS_DEBUG: 1
       UPLOAD_LIMIT: 64M
-    # shared volume
+    # shared volumes
     volumes:
       - "./wp_data:/var/www/html"
       - "./themes:/var/www/html/wp-content/themes:rw"
       - "./mu-plugins:/var/www/html/wp-content/mu-plugins:rw"
       # increase allowed upload file size so that we can import shop data:
-      - docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       # uncomment/modify the following line to plugin code available for local search/debugging:
       # - ./plugins/:/var/www/html/wp-content/plugins
 

@@ -4,11 +4,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 const MYPREFIX_THEME_VERSION = '1.0.0'; // use to ensure that browsers don't load outdated cached style versions
 
-function child_theme_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.scss' );
-	wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() . '/style.scss', array('parent-style'), MYPREFIX_THEME_VERSION, 'all');
-}
 
+// TODO: please check your parent theme's documentation and adjust or remove the style enqueuing code accordingly.
+// Some themes like GeneratePress manage this from the parent theme's perspective and discourage using reenqueuing.
+// Consider writing your CSS in a way that it works without relying on the loading order anyway!
+function child_theme_styles() {
+	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('parent-style'), MYPREFIX_THEME_VERSION, 'all');
+}
 add_action( 'wp_enqueue_scripts', 'child_theme_styles', 20 );
 
 /**

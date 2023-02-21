@@ -2,29 +2,9 @@
 
 [wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, wp-cli, and SCSS to install, develop, and test themes and plugins. It was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker). This template can help you build a classic (child) theme from scratch (without exporting from the block editor), that follows the official WordPress coding standards.
 
-## Child Theme and Optional Must-Use-Plugin
-
-- The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
-- Use (S)CSS and write verbose code in `/src`.
-  - (TODO: remove SCSS from default setup, replace with CSS next syntax using [PostCSS](https://postcss.org)) 
-  - (TODO: configure PostCSS to support native CSS nesting and other upcoming features, to be exported to compatible fallbacks)
-  - (TODO: add PHP configuration to remove unnecessary bloat and cargo code like wp-emoji or jQuery)
-- Add or configure other build tools, like minifying or transpiling if needed.
-- Create a zip archive of that subdirectory to export the theme to another WordPress installation.
-
-The best practice for a quick, minimal, and standards compliant setup, is to create a child theme of an official or popular theme that provides most of the required functionality.
-
-If we need to define custom data structures, we can use the popular [ACF (Advanced Custom Fields) plugin](https://wordpress.org/plugins/advanced-custom-fields/) to add custom fields, and use our own minimal plugin to define custom post types. This should not be part of the theme, to prevent data loss when a theme is changed or deactivated. Using a must-use plugin ensures that the code will always be active.
-
-To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`. The data might have to be installed manually when setting up a production environment.
-
-For the sake of simplicity, our example setup uses a single-file plugin and puts all styles directly into a single `style.css` file without using further `theme.css` or `theme.json` files, which we might want to use depending on the requirements for customizability. Likewise, [SASS / SCSS](https://sass-lang.com) support can be added if it makes life easier for the developer(s) involved. But as we already use PostCSS to control autorprefixing and [cssnano](https://cssnano.co) minification, we can also use it to support the latest and even upcoming CSS sytax like [native CSS nesting](https://www.w3.org/TR/css-nesting-1/) (TODO).
-
-TypeScript / ECMAScript transpilation can also be set up (TODO). In the current state of this template, any JavaScript code will be exportet exactly as it has been written, as the original example was focused on CSS development. 
-
 ## Usage
 
-- `npm start` should set up WordPress on http://localhost:8000/
+- `npm start` should set up WordPress on http://localhost:8765/
 - `npm run watch` adds file watcher to automatically rebuild the theme.
 - `npm stop` stops the server without destroying data and configuration.
 - `npm run destroy` removes the installation and its data.
@@ -46,19 +26,21 @@ TypeScript / ECMAScript transpilation can also be set up (TODO). In the current 
 
 ### Modifying localhost Port and Domain
 
-The server listens on port 8000 by default, so you can enter http://localhost:8000/ to open WordPress in your browser. Modifying the port not only allows you to run multiple local projects at the same time, but it can also prevent browser caching issues between different local WordPress servers and ensure that cross-domain resources, paid plugins or fonts etc. will be displayed correctly.
+The server listens on port 8765 by default, so you can enter http://localhost:8765/ to open WordPress in your browser. Modifying the port not only allows you to run multiple local projects at the same time, but it can also prevent browser caching issues between different local WordPress servers and ensure that cross-domain resources, paid plugins or fonts etc. will be displayed correctly.
 
 You can also set a local domain name that matches your future production server, by adding the domain as a localhost alias in `/etc/hosts` and configuring WordPress to use that domain. A port set to `80` can be omitted in the url, so http://example.com:80/ is equivalent to http://example.com/ and might facilitate testing even more.
 
 Edit the port mapping for the `wordpress:` service in `docker-compose.yml` and change the first value to whatever port you want to use in your browser.
 
-Edit the `installCore` function in `install-local-environment.js` and change `--url=http://localhost:8000"` to the appropriate URL.
+Edit the `installCore` function in `install-local-environment.js` and change `--url=http://localhost:8765"` to the appropriate URL.
 
 Edit `/etc/hosts` and add the local domain alias:
 
 ```
 127.0.0.1	localhost example.com www.example.com
 ```
+
+Add an offloader, load balancer, or reverse proxy to add advanced server functionality like https.
 
 ### Configure pre-installed Themes and Plugins
 
@@ -83,6 +65,26 @@ FROM wordpress:latest
 # https://hub.docker.com/_/wordpress/
 # FROM wordpress:6.1.1-php8.0-apache
 ```
+
+## Child Theme and Optional Must-Use-Plugin
+
+- The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
+- Use (S)CSS and write verbose code in `/src`.
+	- (TODO: remove SCSS from default setup, replace with CSS next syntax using [PostCSS](https://postcss.org))
+	- (TODO: configure PostCSS to support native CSS nesting and other upcoming features, to be exported to compatible fallbacks)
+	- (TODO: add PHP configuration to remove unnecessary bloat and cargo code like wp-emoji or jQuery)
+- Add or configure other build tools, like minifying or transpiling if needed.
+- Create a zip archive of that subdirectory to export the theme to another WordPress installation.
+
+The best practice for a quick, minimal, and standards compliant setup, is to create a child theme of an official or popular theme that provides most of the required functionality.
+
+If we need to define custom data structures, we can use the popular [ACF (Advanced Custom Fields) plugin](https://wordpress.org/plugins/advanced-custom-fields/) to add custom fields, and use our own minimal plugin to define custom post types. This should not be part of the theme, to prevent data loss when a theme is changed or deactivated. Using a must-use plugin ensures that the code will always be active.
+
+To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`. The data might have to be installed manually when setting up a production environment.
+
+For the sake of simplicity, our example setup uses a single-file plugin and puts all styles directly into a single `style.css` file without using further `theme.css` or `theme.json` files, which we might want to use depending on the requirements for customizability. Likewise, [SASS / SCSS](https://sass-lang.com) support can be added if it makes life easier for the developer(s) involved. But as we already use PostCSS to control autorprefixing and [cssnano](https://cssnano.co) minification, we can also use it to support the latest and even upcoming CSS sytax like [native CSS nesting](https://www.w3.org/TR/css-nesting-1/) (TODO).
+
+TypeScript / ECMAScript transpilation can also be set up (TODO). In the current state of this template, any JavaScript code will be exportet exactly as it has been written, as the original example was focused on CSS development.
 
 ## Inspection
 
