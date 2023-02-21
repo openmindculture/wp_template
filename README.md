@@ -6,7 +6,9 @@
 
 - The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
 - Use (S)CSS and write verbose code in `/src`.
-  - (TODO: remove SCSS from deffault setup, replace with CSS next syntax using [PostCSS](https://postcss.org)) 
+  - (TODO: remove SCSS from default setup, replace with CSS next syntax using [PostCSS](https://postcss.org)) 
+  - (TODO: configure PostCSS to support native CSS nesting and other upcoming features, to be exported to compatible fallbacks)
+  - (TODO: add PHP configuration to remove unnecessary bloat and cargo code like wp-emoji or jQuery)
 - Add or configure other build tools, like minifying or transpiling if needed.
 - Create a zip archive of that subdirectory to export the theme to another WordPress installation.
 
@@ -16,7 +18,9 @@ If we need to define custom data structures, we can use the popular [ACF (Advanc
 
 To persist important content like example posts or pages, use the default WordPress exporter to save an XML export as `content.xml`, which will automatically be imported when setting up the local environment using `npm install`. The data might have to be installed manually when setting up a production environment.
 
-For the sake of simplicity, our example setup uses a single-file plugin and puts all styles directly into a single `style.css` file without using further `theme.css` or `theme.json` files, which we might want to use depending on the requirements for customizability.
+For the sake of simplicity, our example setup uses a single-file plugin and puts all styles directly into a single `style.css` file without using further `theme.css` or `theme.json` files, which we might want to use depending on the requirements for customizability. Likewise, [SASS / SCSS](https://sass-lang.com) support can be added if it makes life easier for the developer(s) involved. But as we already use PostCSS to control autorprefixing and [cssnano](https://cssnano.co) minification, we can also use it to support the latest and even upcoming CSS sytax like [native CSS nesting](https://www.w3.org/TR/css-nesting-1/) (TODO).
+
+TypeScript / ECMAScript transpilation can also be set up (TODO). In the current state of this template, any JavaScript code will be exportet exactly as it has been written, as the original example was focused on CSS development. 
 
 ## Usage
 
