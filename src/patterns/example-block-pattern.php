@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Example (patterns directory)
- * Slug: twentytwentythree/example-block-pattern
+ * Slug: twentytwentythree-child/example-block-pattern
  * Categories: featured, text
  * Block Types: post
  * Description: Example created using the file patterns/example-block-pattern.php
