@@ -6,7 +6,9 @@ Roadmap / development: this repository should be kept up to date to reflect the 
 
 ## Usage
 
-- `npm start` should set up WordPress on http://localhost:8765/
+- `npm install` initialize and start the development environment
+- `npm start` should start up WordPress on http://localhost:8765/
+- `npm run build` rebuilds and exports the theme's CSS and PHP files
 - `npm run watch` adds file watcher to automatically rebuild the theme.
 - `npm stop` stops the server without destroying data and configuration.
 - `npm run destroy` removes the installation and its data.
