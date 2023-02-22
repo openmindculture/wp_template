@@ -64,6 +64,8 @@ services:
     volumes:
       - "./wp_data:/var/www/html"
       - "./themes:/var/www/html/wp-content/themes:rw"
+      # uncomment/modify the following line to import saved content
+      - ./content.xml:/var/www/html/content.xml
 
 volumes:
   db_data:
