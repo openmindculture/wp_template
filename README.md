@@ -68,7 +68,7 @@ FROM wordpress:latest
 # FROM wordpress:6.1.1-php8.0-apache
 ```
 
-## Child Theme and Optional Must-Use-Plugin
+## Child Theme, Block Patterns, and Optional Must-Use-Plugin
 
 - The theme in a subdirectory of `/themes` will be rebuilt when `/src` files have changed.
 - Use (S)CSS and write verbose code in `/src`.
@@ -77,6 +77,8 @@ FROM wordpress:latest
 	- (TODO: add PHP configuration to remove unnecessary bloat and cargo code like wp-emoji or jQuery)
 - Add or configure other build tools, like minifying or transpiling if needed.
 - Create a zip archive of that subdirectory to export the theme to another WordPress installation.
+
+Known issue: [block patterns](https://developer.wordpress.org/block-editor/reference-guides/block-api/block-patterns/) defined as .php files in the child theme's `patterns` directory seemed to be ignored in a `twentytwentythree-child` theme, while they did work when copying the files directly into the parent theme's pattern directory, or when using other, probably more classic, themes, like GeneratePress.
 
 The best practice for a quick, minimal, and standards compliant setup, is to create a child theme of an official or popular theme that provides most of the required functionality.
 
