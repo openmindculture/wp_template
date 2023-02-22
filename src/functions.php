@@ -32,7 +32,7 @@ add_action( 'after_setup_theme', function() {
 
 } );
 
-function myprefix_disable_emojis() {
+function myprefix_init_actions() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -42,7 +42,7 @@ function myprefix_disable_emojis() {
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	// omitted tinyMCE block as we are using block editor only
 }
-add_action( 'init', 'myprefix_disable_emojis' );
+add_action( 'init', 'myprefix_init_actions' );
 
 // Optionally: Whitelist only the blocks that we need
 // TODO: allowed_block_types is deprecated since 5.8.0, use allowed_block_types_all filter, see:
