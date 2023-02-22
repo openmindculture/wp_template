@@ -12,21 +12,6 @@
  Text Domain:  twentytwentythree-child
 */
 
-/* single line unimportant comment before imports */
-/*! single line important comment */
-/* multi line unimportant comment
- * multi line unimportant comment
- */
-/*! multi line important comment
- * multi line important comment
- */
-/** double asterisk single line comment */
-/*! end of comments testing */
-
-.before-imports--using--cssnano {
-	color: red;
-}
-
 // @use "sass/base/reset"; /* explicit style reset obsolete in a child theme */
 @import "sass/base/variables"; // global variable namespace
 @import "sass/base/fonts";
@@ -41,20 +26,3 @@
 /* include atoms, blocks, patterns, ... */
 @import "sass/components/buttons";
 @import "sass/components/ctas";
-
-.after-imports {
-	color: red;
-}
-
-/** same tests after imports */
-
-/* single line unimportant comment after imports */
-/*! single line important comment after imports */
-/* multi line unimportant comment after imports
- * multi line unimportant comment after imports
- */
-/*! multi line important comment after imports
- * multi line important comment after imports
- */
-/** double asterisk single line comment after imports */
-/*! end of comments testing after imports */
