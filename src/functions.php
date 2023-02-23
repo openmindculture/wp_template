@@ -41,6 +41,10 @@ function myprefix_init_actions() {
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	// omitted tinyMCE block as we are using block editor only
+
+	// prevent insertion of .wp-block-group__inner-container if there is no theme.json
+	// https://wordpress.org/support/topic/remove-wp-block-group__inner-container-for-classic-theme/
+	remove_filter( 'render_block_core/group', 'wp_restore_group_inner_container', 10, 2 );
 }
 add_action( 'init', 'myprefix_init_actions' );
 
