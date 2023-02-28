@@ -1,7 +1,11 @@
 {
-  "extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
-  "ignorePatterns": [
-    "node_modules/**/*.js",
-    "plugins/**/*.js"
-  ]
+	"extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+	"ignorePatterns": [
+		"node_modules/**/*.js",
+		"plugins/**/*.js"
+	],
+	"rules": {
+		"no-var": "off",
+		"jsdoc/empty-tags": "off"
+	}
 }
