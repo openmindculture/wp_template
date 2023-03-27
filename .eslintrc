@@ -2,11 +2,8 @@
 	"env": {
 		"browser": true
 	},
-	"plugins": [
-		"es5"
-	],
 	"ignorePatterns": [
-		".postcss.config.js",
+		"postcss.config.js",
 		"node_modules/**/*.js"
 	],
 	"rules": {

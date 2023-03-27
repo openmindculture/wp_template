@@ -1,5 +1,11 @@
-/** Layout basics */
+/** Layout and color basics */
+
+body {
+	background-color: var(--background-primary);
+	color: var(--brand-primary);
+}
 
 h1 {
 	margin-bottom: 1rem;
+	color: var(--brand-secondary);
 }

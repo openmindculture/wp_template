@@ -1,5 +1,5 @@
 :root {
-	/* define possible colors and layout constanst;
+	/* define possible colors and layout constants;
 	 * postcss-custom-properties : preserve: false
 	 * => only export properties that are actually used
 	 */
@@ -17,6 +17,7 @@
 
 	--brand-primary: chartreuse;
 	--brand-secondary: rebeccapurple;
+	--background-primary: wheat;
 	--semantic-error: red;
 
 	/* Layers */
