@@ -1,0 +1,13 @@
+/* Typography */
+
+html, body {
+	font-family: 'Foo Bar', sans-serif;
+}
+
+/* specificity wrapper for Gutenberg block editor preview */
+body div {}
+body div h1 {
+	font-family: 'Baz';
+	color: var(--brand-secondary);
+	margin-bottom: var(--defaultGap);
+}

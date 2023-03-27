@@ -11,11 +11,10 @@
     "eslint": "eslint --ext .js src",
     "stylelint": "stylelint src/*.css",
     "prebuild": "rimraf build dist && make-dir dist",
-    "build": "run-s build:scss build:core remove:scss",
+    "build": "run-s build:postcss build:core",
     "build:core": "copyfiles -u 1 -e src/**/* src/style.css src/theme.json src/screenshot.jpg src/assets/fonts/* src/assets/svg/* src/*.php themes/twentytwentythree-child",
     "build:postcss": "postcss themes/twentytwentythree-child/style.css --use autoprefixer cssnano --no-cssnano.discardComments -r --no-map --verbose",
     "build:zip": "zip-build themes/twentytwentythree-child dist --name twentytwentythree-child --template %NAME%-%VERSION%.%EXT%",
-    "remove:scss": "rimraf themes/twentytwentythree-child/sass",
     "watch": "watch \"npm run build:postscss\" src/css"
   },
   "author": "",
@@ -41,7 +40,7 @@
     "postcss-preset-env": "^8.1.0",
     "rimraf": "^4.1.2",
     "stylelint": "^15.3.0",
-    "stylelint-config-recommended": "^11.0.0",
+    "stylelint-config-standard": "^31.0.0",
     "watch": "^1.0.2"
   }
 }

@@ -12,8 +12,6 @@
 		"selector-id-pattern": null,
 		"selector-not-notation": null,
 		"shorthand-property-no-redundant-values": null,
-		"string-quotes": null,
-		"value-list-comma-space-after": null,
 		"value-no-vendor-prefix": null
 	}
 }
