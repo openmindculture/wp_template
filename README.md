@@ -4,6 +4,12 @@
 
 Roadmap / development: this repository should be kept up to date to reflect the current best practices, but otherwise it should remain a minimal template without too many features added.
 
+### WordPress Coding Style Incompatibility after 1.0.0
+
+After `1.0.0`, a mostly stable beta releae with SCSS and WordPress code style, I removed both SCSS and WP syntax tools in favor of a more minimal and modern codebase, which is no longer suitable for developing themes or plugins that pass the official review process!
+
+To avoid confusion, I will keep the new codebase in its feature branch or even fork another distinct repository. You can follow the latest work in progress in the [`minimalism-config` feature branch](https://github.com/openmindculture/wp_template/tree/minimalism-config). The new codebase will follow a classic approach, possibly independent of any parent theme, but possibly inspired by Twenty-Twenty-Three and GeneratePress.
+
 ## Usage
 
 - `npm install` initialize and start the development environment
@@ -28,7 +34,7 @@ Roadmap / development: this repository should be kept up to date to reflect the 
 - Edit `build:core` to make sure all necessary files will be exported.
 - Edit your `style.css` and `theme.json` to match name, author, version etc.
 
-### Modifying localhost Port and Domain
+### Modify localhost Port and Domain
 
 The server listens on port 8765 by default, so you can enter http://localhost:8765/ to open WordPress in your browser. Modifying the port not only allows you to run multiple local projects at the same time, but it can also prevent browser caching issues between different local WordPress servers and ensure that cross-domain resources, paid plugins or fonts etc. will be displayed correctly.
 
