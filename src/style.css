@@ -15,7 +15,7 @@
 @import url("css/base/base-reset.css");
 @import url("css/base/design-tokens.css");
 @import url("css/base/fonts.css");
-@import url("css/base/typography.css");
+@import url("css/base/typography.scss");
 @import url("css/base/layout.css");
 
 /* add libraries like animate.css here */

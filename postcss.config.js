@@ -5,6 +5,7 @@ module.exports = {
 		postcssCustomProperties({
 			preserve: false,
 		}),
+		/* require('calcFunction'), */
 		/* require('postcss-minify'), */
 	]
 }

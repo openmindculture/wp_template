@@ -6,17 +6,16 @@
 
 	/* sizes */
 	/* header, footer etc. will not be wider than a fixed maximum width: */
-	--heroMaxWidth: 1234px;
-	--defaultGap: 1rem;
+	--width-content-max: 1234px;
+	--width-hero-max: calc(var(--width-content-max) - 16px);
+	--gap-default: 1rem;
 
 	/*
 	 * brand colors, typography, preferences
-	 * hover state adds 8% black / 8% white respectively
-	 * fonts: see: src/components/typography/typography.scss
 	 */
 
-	--brand-primary: chartreuse;
-	--brand-secondary: rebeccapurple;
+	--color-primary: crimson;
+	--color-secondary: rebeccapurple;
 	--background-primary: wheat;
 	--semantic-error: red;
 

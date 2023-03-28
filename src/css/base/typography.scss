@@ -8,6 +8,6 @@ html, body {
 body div {}
 body div h1 {
 	font-family: 'Baz';
-	color: var(--brand-secondary);
-	margin-bottom: var(--defaultGap);
+	color: var(--color-secondary);
+	margin-bottom: var(--gap-default);
 }

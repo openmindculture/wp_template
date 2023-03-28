@@ -9,7 +9,7 @@
     "stop": "docker-compose stop",
     "destroy": "docker-compose down -v",
     "eslint": "eslint --ext .js src",
-    "stylelint": "stylelint src/*.css",
+    "stylelint": "stylelint src/**/*.css",
     "prebuild": "rimraf build dist && make-dir dist",
     "build": "run-s build:core build:postcss",
     "build:core": "copyfiles -u 1 -e src/**/* src/style.css src/theme.json src/screenshot.jpg src/assets/fonts/* src/assets/svg/* src/*.php themes/twentytwentythree-child",
