@@ -7,8 +7,8 @@ module.exports = {
 		postcssCustomProperties({
 			preserve: false,
 		}),
-		require('postcss-nesting'),
     require('postcss-extend-rule'),
+		require('postcss-nesting'),
 		require('postcss-minify'),
 	],
 }
