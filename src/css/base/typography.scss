@@ -4,10 +4,19 @@ html, body {
 	font-family: 'Foo Bar', sans-serif;
 }
 
+%font-xl {
+  font-size: 48px;
+  line-height: 1.5;
+}
+
 /* specificity wrapper for Gutenberg block editor preview */
-body div {}
 body div h1 {
 	font-family: 'Baz';
 	color: var(--color-secondary);
 	margin-bottom: var(--gap-default);
+}
+
+.wp-site-blocks main h1 {
+  @extend %font-xl;
+  background-color: skyblue;
 }
