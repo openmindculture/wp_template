@@ -8,7 +8,7 @@ Roadmap / development: this repository should be kept up to date to reflect the 
 
 After `1.0.0`, a mostly stable beta releae with SCSS and WordPress code style, I removed both SCSS and WP syntax tools in favor of a more minimal and modern codebase, which is no longer suitable for developing themes or plugins that pass the official review process!
 
-To avoid confusion, I will keep the new codebase in its feature branch or even fork another distinct repository. You can follow the latest work in progress in the <strike>[`minimalism-config` feature branch](https://github.com/openmindculture/wp_template/tree/minimalism-config)</strike> or the more recent [wp_template_opinionated](https://github.com/openmindculture/wp_template_opinionated/). The new codebase will follow a classic approach, possibly independent of any parent theme, but possibly inspired by Twenty-Twenty-Three and GeneratePress.
+To avoid confusion, I will keep the new codebase in its feature branch or even fork another distinct repository. You can follow the latest work in progress in the <strike>[`minimalism-config` feature branch](https://github.com/openmindculture/wp_template/tree/minimalism-config)</strike> or the more recent forked repository, [wp_template_opinionated](https://github.com/openmindculture/wp_template_opinionated/). The new codebase will follow a classic approach, possibly independent of any parent theme, but possibly inspired by Twenty-Twenty-Three and GeneratePress.
 
 ## Usage
 
