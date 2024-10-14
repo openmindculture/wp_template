@@ -1,6 +1,17 @@
-# WordPress Template / Starter Theme Boilerplate
+# WordPress Template / Hybrid-Classic Starter Theme Boilerplate
 
-[wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker-compose, wp-cli, and PostCSS to install, develop, and test themes and plugins. It was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker). This template can help you build a classic (child) theme from scratch (without exporting from the block editor), that follows the official WordPress coding standards. We can still support and provide custom blocks in our theme.
+This opinionated development template focuses on minimalism and does not follow the official WordPress ways.
+
+- prefer vanilla CSS for any kind of customization
+- prefer lintable CSS code to CSS-in-JS (`theme.json` values)
+- prefer codeless custom blocks without Webpack, without React, without SCSS
+- prefer modern, PSR-style, PHP code instead of legacy WordPress code style
+- prefer custom page markup to bloated WP core output
+- prefer clean code and webperformance optimization
+
+This repository is already outdated! See open issues!
+
+[wp_template](https://github.com/openmindculture/wp_template) is a simple local host WordPress setup using Docker, docker compose, wp-cli, and PostCSS to install, develop, and test themes and plugins. It was forked from [wp_cli_docker](https://github.com/openmindculture/wp_cli_docker). This template can help you build a classic (child) theme from scratch (without exporting from the block editor), that follows the official WordPress coding standards. We can still support and provide custom blocks in our theme.
 
 Roadmap / development: this repository should be kept up to date to reflect the current best practices, but otherwise it should remain a minimal template without too many features added.
 
