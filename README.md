@@ -2,6 +2,8 @@
 
 This opinionated development template focuses on minimalism and does not follow the official WordPress ways.
 
+⚠️ This repository is not actively maintained anymore! Please consider [`openmindculture/wp-impact-theme`](https://github.com/openmindculture/wp-impact-theme/) as a more up-to-date template!
+
 - prefer vanilla CSS for any kind of customization
 - prefer lintable CSS code to CSS-in-JS (`theme.json` values)
 - prefer codeless custom blocks without Webpack, without React, without SCSS
